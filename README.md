@@ -20,9 +20,9 @@ Linux Based Machine
 Windows Machine
   Edit config.py using notepad
     
-
-Commandline
 ~~~~~~~~~~~
+Commandline
+
 The simplest method of sending out a bulk email.
 
 Run a test to predefined test_recipients::
