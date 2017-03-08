@@ -1,0 +1,8 @@
+Hello %s,
+
+Interested in %s for Summer Internship
+
+Thanks & Regards,
+Vineet Palan
+https://www.linkedin.com/in/vineetpalan
+http://vineetpalan.tech/
