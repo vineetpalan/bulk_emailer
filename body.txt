@@ -1,8 +1,6 @@
-Hello %s,
+Hi <RECRUITER_NAME>,
 
-Interested in %s for Summer Internship
+I am in interested in working as an intern at <COMPANY_NAME>.
 
-Thanks & Regards,
-Vineet Palan
-https://www.linkedin.com/in/vineetpalan
-http://vineetpalan.tech/
+Regards,
+XYZ

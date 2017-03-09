@@ -11,7 +11,7 @@ recruiter_company = []
 recruiter_names = []
 recruiter_emails = []
 
-SUBJECT = "Summer Internship Opportunity at %s - Software Development Domain"
+SUBJECT = "Interest in Software Development Internship at %s"
 SENDER = "%s <%s>" % (config.FROM_NAME, config.FROM_EMAIL)
 
 def get_body_content():
@@ -29,9 +29,10 @@ def read_csv_file():
         if first_line:
             first_line = False
             continue
-    recruiter_company.append(row[config.COMPANY_NAME_COLUMN_INDEX])
-    recruiter_names.append(row[config.RECRUITER_NAME_COLUMN_INDEX])
-    recruiter_emails.append(row[config.EMAIL_COLUMN_INDEX])
+        # tabbed spaced the 3 below lines to make it a part of the for loop
+        recruiter_company.append(row[config.COMPANY_NAME_COLUMN_INDEX])
+        recruiter_names.append(row[config.RECRUITER_NAME_COLUMN_INDEX])
+        recruiter_emails.append(row[config.EMAIL_COLUMN_INDEX])
 
 def login_smtp_server():
     try:
@@ -52,7 +53,9 @@ def send_emails():
     smtp = login_smtp_server()
     read_csv_file()
     for email in recruiter_emails:
-        new_body_content = body_content % (recruiter_names[current_row],recruiter_company[current_row] )
+        # implemented using the replace method to avoid any confusion using the string literals.
+        new_body_content = body_content.replace("<RECRUITER_NAME>",recruiter_names[current_row])
+        new_body_content = new_body_content.replace("<COMPANY_NAME>",recruiter_company[current_row])
         new_subject =  SUBJECT  % (recruiter_company[current_row])
         send_email.send_mail(SENDER,email,new_subject,new_body_content,smtp)
         current_row += 1
