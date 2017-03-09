@@ -57,7 +57,7 @@ def send_emails():
         new_body_content = body_content.replace("<RECRUITER_NAME>",recruiter_names[current_row])
         new_body_content = new_body_content.replace("<COMPANY_NAME>",recruiter_company[current_row])
         new_subject =  SUBJECT  % (recruiter_company[current_row])
-        send_email.send_mail(SENDER,email,new_subject,new_body_content,smtp)
+        #send_email.send_mail(SENDER,email,new_subject,new_body_content,smtp)
         current_row += 1
         time.sleep(0.5)
 
