@@ -1,4 +1,7 @@
+[![Build Status](https://travis-ci.org/vineetpalan/bulk_emailer.svg?branch=master)](https://travis-ci.org/vineetpalan/bulk_emailer)
+
 # bulk_emailer
+
 
 **Python Script to send bulk emails using std libs.**
 
