@@ -5,3 +5,6 @@ python:
 
 script:
 - python BulkEmail.py
+
+notifications:
+  slack: personalprojects-co:GvmvLaaKyzLyK8FHtNxNXVJA
