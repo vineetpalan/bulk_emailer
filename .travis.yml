@@ -7,4 +7,4 @@ python:
   - "pypy"
 
 script:
-- python -m BulkEmailer.py discover; fi
+- python BulkEmailer.py
