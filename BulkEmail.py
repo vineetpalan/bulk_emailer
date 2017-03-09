@@ -39,7 +39,8 @@ def login_smtp_server():
         smtp = smtplib.SMTP(config.SMTP_HOST + ":"+ config.SMTP_PORT)
         smtp.ehlo()
         smtp.starttls()
-        smtp.login(config.FROM_EMAIL, config.EMAIL_PASSWORD)
+	if (config.EMAIL_PASSWORD != ""):
+            smtp.login(config.FROM_EMAIL, config.EMAIL_PASSWORD)
         return smtp
     except Exception, e:
         print e
