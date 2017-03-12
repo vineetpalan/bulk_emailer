@@ -22,10 +22,9 @@ def get_body_content():
         sys.exit(0)
 	
 
-def read_csv_file(csv_file):
+def read_csv_file():
+    csv_file = get_csv_name()
     first_line = True
-    if (csv_file == ""):
-        csv_file = config.CSV_FILENAME;
     reader = csv.reader(open(csv_file, 'r'), delimiter=',')
     for row in reader:
         if first_line:
@@ -48,21 +47,27 @@ def login_smtp_server():
         print (e)
         sys.exit(0)
     
-
+def get_csv_name():
+    csv_file = ""
+    try:
+        csv_file = sys.argv[1]
+    except Exception as e:
+        print('Using default csv file')
+        csv_file = config.CSV_FILENAME;
+    return csv_file
 
 def send_emails():
     current_row = 0
     body_content = get_body_content()
     smtp = login_smtp_server()
-    csv_file = sys.argv[1]
-    read_csv_file(csv_file)
+    read_csv_file()
     for email in recruiter_emails:
         # implemented using the replace method to avoid any confusion using the string literals.
         new_body_content = body_content.replace("<RECRUITER_NAME>",recruiter_names[current_row])
         new_body_content = new_body_content.replace("<COMPANY_NAME>",recruiter_company[current_row])
         new_subject =  SUBJECT  % (recruiter_company[current_row])
-	if (config.EMAIL_PASSWORD != ""):        
-		send_email.send_mail(SENDER,email,new_subject,new_body_content,smtp)
+        if (config.EMAIL_PASSWORD != ""):
+           send_email.send_mail(SENDER,email,new_subject,new_body_content,smtp)
         current_row += 1
         time.sleep(0.5)
 
