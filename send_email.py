@@ -3,6 +3,7 @@ import email
 from email.mime.application import MIMEApplication
 from email.mime.multipart import MIMEMultipart
 from email.utils import formatdate
+from email.mime.text import MIMEText
 import config
 
 def send_mail(send_from, send_to, subject, body_text,smtp):
@@ -13,7 +14,7 @@ def send_mail(send_from, send_to, subject, body_text,smtp):
     msg['Date'] = formatdate(localtime=True)
     msg['Subject'] = subject
 
-    body = email.mime.Text.MIMEText(body_text)
+    body = MIMEText(body_text)
     msg.attach(body)
 
     try:
@@ -22,9 +23,9 @@ def send_mail(send_from, send_to, subject, body_text,smtp):
         fp.close()
         att.add_header('Content-Disposition', 'attachment', filename=config.RESUME_FILE_NAME)
         msg.attach(att)
-    except Exception, e:
-        print e
-        print "Sent Mail without attachment"
+    except Exception as e:
+        print (e)
+        print ("Sent Mail without attachment")
 
     smtp.sendmail(send_from, send_to, msg.as_string())
-    print "Mail Sent to" + send_to
+    print ("Mail Sent to" + send_to)
