@@ -18,7 +18,7 @@ Setup
 Edit the config file before running the script::
 
 Linux Based Machine
-    $ vim config.py
+    $ vim config.py or pico config.py or gedit config.py
 
 Windows Machine
   Edit config.py using notepad
@@ -30,4 +30,12 @@ The simplest method of sending out a bulk email.
 
 Run a test to predefined test_recipients::
 
-    $ ./BulkEmail
+    $ ./bulk_email
+
+    OR
+    
+    $ python bulk_email emails.csv
+    
+    OR
+    
+    $ python bulk_email
