@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/vineetpalan/bulk_emailer.svg?branch=master)](https://travis-ci.org/vineetpalan/bulk_emailer)
-[![Coverage Status](https://coveralls.io/repos/github/vineetpalan/bulk_emailer/badge.svg?branch=master)](https://coveralls.io/github/vineetpalan/bulk_emailer?branch=master)
+
 # bulk_emailer
 
 
